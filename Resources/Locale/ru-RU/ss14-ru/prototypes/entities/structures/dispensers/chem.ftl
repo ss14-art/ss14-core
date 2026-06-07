@@ -1,6 +1,6 @@
 ent-ChemDispenserEmpty = химический диспенсер
-    .desc = An industrial grade chemical dispenser.
+    .desc = Автоматический синтезатор базовых реагентов с энергетическим буфером..
     .suffix = Empty
-ent-ChemDispenser = раздатчик химикатов
+ent-ChemDispenser = ХимРаздатчик 5000
     .suffix = Filled
     .desc = { ent-ChemDispenserEmpty.desc }
