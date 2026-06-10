@@ -1,6 +1,10 @@
 using Content.Server.Chemistry.Components;
 using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Paper;
+using Content.Shared._Art.Chemistry;
 using Content.Shared._Starlight.Plumbing.Components; // Starlight-edit: Plumbing valve
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
@@ -41,6 +45,9 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly LabelSystem _labelSystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly SharedHandsSystem _hands = default!; // SS14-Art
+        [Dependency] private readonly PaperSystem _paper = default!;       // SS14-Art
+        [Dependency] private readonly MetaDataSystem _metaData = default!; // SS14-Art
         [Dependency] private readonly TagSystem _tag = default!; // Starlight-edit
 
         private static readonly EntProtoId PillPrototypeId = "Pill";
@@ -64,6 +71,11 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePatchesMessage>(OnCreatePatchesMessage); // Starlight
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleValveMessage>(OnToggleValveMessage); // Starlight
+
+            // SS14-Art start: Chemical Analysis
+            SubscribeLocalEvent<ChemMasterComponent, ChemAnalyzeReagentMessage>(OnAnalyzeReagentMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemPrintAnalysisMessage>(OnPrintAnalysisMessage);
+            // SS14-Art end
 
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSortMethodUpdated>(OnSortMethodUpdated);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterTransferringAmountUpdated>(OnTransferringAmountUpdated);
@@ -1056,6 +1068,47 @@ namespace Content.Server.Chemistry.EntitySystems
             }
             chemMaster.SelectedReagentAmounts = updatedAmounts;
         }
+
+        // SS14-Art start: Chemical Analysis
+        private void OnAnalyzeReagentMessage(Entity<ChemMasterComponent> chemMaster, ref ChemAnalyzeReagentMessage message)
+        {
+            if (!_prototypeManager.TryIndex(message.ReagentId.Prototype, out ReagentPrototype? proto))
+                return;
+
+            _userInterfaceSystem.ServerSendUiMessage(
+                chemMaster.Owner,
+                ChemMasterUiKey.Key,
+                new ChemReagentAnalysisPopupMessage(message.ReagentId, proto.LocalizedName, proto.LocalizedDescription),
+                message.Actor);
+        }
+
+        private void OnPrintAnalysisMessage(Entity<ChemMasterComponent> chemMaster, ref ChemPrintAnalysisMessage message)
+        {
+            PrintAnalysis(message.Actor, message.ReagentId);
+        }
+
+        private void PrintAnalysis(EntityUid user, ReagentId reagentId)
+        {
+            if (!_prototypeManager.TryIndex(reagentId.Prototype, out ReagentPrototype? proto))
+                return;
+
+            var printed = Spawn("Paper", Transform(user).Coordinates);
+            _hands.PickupOrDrop(user, printed, checkActionBlocker: false);
+
+            if (!TryComp<PaperComponent>(printed, out var paperComp))
+                return;
+
+            _metaData.SetEntityName(printed, Loc.GetString("chem-analysis-paper-name", ("reagent", proto.LocalizedName)));
+
+            var text =
+                $"{Loc.GetString("chem-analysis-paper-title", ("reagent", proto.LocalizedName))}\n\n" +
+                $"{Loc.GetString("chem-analysis-paper-name-line", ("reagent", proto.LocalizedName))}\n" +
+                $"{Loc.GetString("chem-analysis-paper-description-line", ("description", proto.LocalizedDescription))}\n\n" +
+                $"{Loc.GetString("chem-analysis-paper-notes-line")}";
+
+            _paper.SetContent((printed, paperComp), text);
+        }
+        // SS14-Art end
 
         private void ClickSound(Entity<ChemMasterComponent> chemMaster)
         {

@@ -1,3 +1,5 @@
+using Content.Client._Art.Chemistry.UI;
+using Content.Shared._Art.Chemistry;
 using Content.Shared.Chemistry;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
@@ -14,6 +16,7 @@ namespace Content.Client.Chemistry.UI
     {
         [ViewVariables]
         private ChemMasterWindow? _window;
+        private ChemAnalysisPopup? _analysisPopup; // SS14-Art
 
         public ChemMasterBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
@@ -43,6 +46,10 @@ namespace Content.Client.Chemistry.UI
             // Starlight-start: Plumbing valve
             _window.OnToggleValveButtonPressed += () => SendMessage(new ChemMasterToggleValveMessage());
             // Starlight-end
+
+            // SS14-Art start: Chemical Analysis
+            _window.OnAnalyzeReagentPressed += reagent => SendMessage(new ChemAnalyzeReagentMessage(reagent));
+            // SS14-Art end
 
             for (uint i = 0; i < _window.PillTypeButtons.Length; i++)
             {
@@ -125,5 +132,20 @@ namespace Content.Client.Chemistry.UI
                 (uint) _window.BottleNumber.Value,
                 bottleLabel));
         }
+
+        // SS14-Art start: Chemical Analysis popup
+        protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+        {
+            base.ReceiveMessage(message);
+
+            if (message is not ChemReagentAnalysisPopupMessage popup)
+                return;
+
+            _analysisPopup?.Close();
+            _analysisPopup = new ChemAnalysisPopup(popup);
+            _analysisPopup.OnPrintPressed += reagent => SendMessage(new ChemPrintAnalysisMessage(reagent));
+            _analysisPopup.OpenCentered();
+        }
+        // SS14-Art end
     }
 }
