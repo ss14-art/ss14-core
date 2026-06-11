@@ -1,3 +1,4 @@
+# ss14-art-edit start: Lunarix roles migration and restoration
 - type: roleRequirementPrototype
   id: MoonManGhostThemeReq
   roles:
@@ -16,7 +17,8 @@
 - type: roleRequirementPrototype
   id: StaffRolesReq
   roles:
-  - 1506040825111511040 # Project Team (Staff)
+  - 1506040825111511040 # Staff
+  - 1506041704011268218 # Owner
   discord: roles-req-discord-lunarix
   rolesLoc: roles-req-staff-roles
 
@@ -25,4 +27,43 @@
   roles:
   - 1513970252126621907 # Moon Knight
   discord: roles-req-discord-lunarix
-  rolesLoc: roles-req-patron-roles
+  rolesLoc: roles-req-lunarix-moon-knight
+
+# Restoring legacy prototypes mapped to Staff/Owner to prevent crashes
+- type: roleRequirementPrototype
+  id: CarpGamesReq
+  roles:
+  - 1506041704011268218 # Owner
+  discord: roles-req-discord-lunarix
+  rolesLoc: roles-req-lunarix-owner
+
+- type: roleRequirementPrototype
+  id: FirstWritingContestReq
+  roles:
+  - 1506041704011268218 # Owner
+  discord: roles-req-discord-lunarix
+  rolesLoc: roles-req-lunarix-owner
+
+- type: roleRequirementPrototype
+  id: TesterReq
+  roles:
+  - 1506041704011268218 # Owner
+  - 1506040825111511040 # Staff
+  discord: roles-req-discord-lunarix
+  rolesLoc: roles-req-all-roles
+
+- type: roleRequirementPrototype
+  id: MentorRolesReq
+  roles:
+  - 1506041704011268218 # Owner
+  - 1506043283137232946 # Curator
+  discord: roles-req-discord-lunarix
+  rolesLoc: roles-req-lunarix-curator
+
+- type: roleRequirementPrototype
+  id: WizdenPatronReq
+  roles:
+  - 1513970252126621907 # Moon Knight
+  discord: roles-req-discord-lunarix
+  rolesLoc: roles-req-lunarix-moon-knight
+# ss14-art-edit end

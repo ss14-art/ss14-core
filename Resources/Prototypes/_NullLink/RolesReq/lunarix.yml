@@ -1,3 +1,4 @@
+# ss14-art-edit start: Lunarix roles requirement
 - type: roleRequirementPrototype
   id: LunarixOwnerReq
   roles:
@@ -61,3 +62,4 @@
   - 1513970252126621907 # Moon Knight
   discord: roles-req-discord-lunarix
   rolesLoc: roles-req-lunarix-moon-man
+# ss14-art-edit end

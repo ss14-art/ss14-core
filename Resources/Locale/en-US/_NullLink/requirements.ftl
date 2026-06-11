@@ -1,3 +1,4 @@
+# ss14-art-edit start: Lunarix localization
 roles-req-any-role-required-pass = You require any of the following roles on {$discord}: [color=limegreen]{$roles}[/color].
 roles-req-any-role-required-fail = You require any of the following roles on {$discord}: [color=yellow]{$roles}[/color].
 
@@ -36,3 +37,4 @@ roles-req-developer = Developer
 
 triesteport-main = TRIESTEPORT
 overall = overall
+# ss14-art-edit end

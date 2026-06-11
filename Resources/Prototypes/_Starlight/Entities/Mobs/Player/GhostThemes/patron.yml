@@ -1,7 +1,8 @@
+# ss14-art-edit start: Lunarix patron ghost themes
 - type: ghostTheme
   id: angel
-  name: angel
-  description: Watchful guardian.
+  name: ghost-theme-angel-name
+  description: ghost-theme-angel-desc
   spriteSpecifier:
     sprite:
       sprite: _Starlight/Mobs/Customization/GhostThemes/angel.rsi
@@ -21,8 +22,8 @@
 
 - type: ghostTheme
   id: ClownTheme
-  name: Clown
-  description: Honk from beyond the veil.
+  name: ghost-theme-clown-name
+  description: ghost-theme-clown-desc
   spriteSpecifier:
     sprite:
       sprite: _Starlight/Mobs/Customization/GhostThemes/clown.rsi
@@ -34,8 +35,8 @@
 
 - type: ghostTheme
   id: FaithlessTheme
-  name: Faithless
-  description: A wandering faithless spirit.
+  name: ghost-theme-faithless-name
+  description: ghost-theme-faithless-desc
   spriteSpecifier:
     sprite:
       sprite: _Starlight/Mobs/Customization/GhostThemes/faithless.rsi
@@ -47,8 +48,8 @@
 
 - type: ghostTheme
   id: MushroomTheme
-  name: Mushroom
-  description: Soft spores, gentle haunting.
+  name: ghost-theme-mushroom-name
+  description: ghost-theme-mushroom-desc
   spriteSpecifier:
     sprite:
       sprite: _Starlight/Mobs/Customization/GhostThemes/mushroom.rsi
@@ -60,8 +61,8 @@
 
 - type: ghostTheme
   id: WalkerTheme
-  name: Walker
-  description: Still shambling after death.
+  name: ghost-theme-walker-name
+  description: ghost-theme-walker-desc
   spriteSpecifier:
     sprite:
       sprite: _Starlight/Mobs/Customization/GhostThemes/walker.rsi
@@ -83,4 +84,5 @@
     color: "#ffffff"
   requirements:
   - !type:DiscordRolesRequirement
-    requirement: WizdenPatronReq
+    requirement: MoonKnightGhostThemeReq
+# ss14-art-edit end

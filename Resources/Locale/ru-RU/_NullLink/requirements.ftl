@@ -1,13 +1,14 @@
+# ss14-art-edit start: Lunarix localization
 roles-req-any-role-required-pass = Вам необходима любая из следующих ролей в {$discord}: {$roles}.
 roles-req-any-role-required-fail = Вам необходима любая из следующих ролей в {$discord}: {$roles}.
 
 requirements-playtime =
     { $tracker ->
-        [overall] You still need {$time} of total gameplay time on the {$server} server.
-       *[other] You still need {$time} of gameplay time for {$tracker} on the {$server} server.
+        [overall] Вам все еще требуется {$time} общего игрового времени на сервере {$server}.
+       *[other] Вам все еще требуется {$time} игрового времени для {$tracker} на сервере {$server}.
     }
 
-roles-req-discord-lunarix = 🌙 Lunarix 🌙
+roles-req-discord-lunarix = Lunarix
 roles-req-discord-wizden = Wizden
 
 roles-req-lunarix-owner = Lunarix (Владелец)
@@ -36,3 +37,4 @@ roles-req-developer = Developer
 
 triesteport-main = TRIESTEPORT
 overall = общее
+# ss14-art-edit end
