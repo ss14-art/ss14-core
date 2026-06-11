@@ -1,0 +1,18 @@
+- type: ghostTheme
+  id: RainbowCarpTheme
+  name: Rainbow Carp
+  description: A legendary rainbow carp from the depths of the lunar sea.
+  spriteSpecifier:
+    sprite:
+      sprite: Mobs/Aliens/Carps/space.rsi
+      state: alive
+    color: "#ffffff" # Will be rainbowed by shader if available, or just a colorful carp
+  trail:
+    color: "#FFFFFF"
+    maxPoints: 64
+    lineWidth: 1.0
+    minDistance: 0.10
+    shader: Rainbow
+  requirements:
+  - !type:DiscordRolesRequirement
+    requirement: MoonManGhostThemeReq

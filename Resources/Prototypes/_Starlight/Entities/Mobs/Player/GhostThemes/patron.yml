@@ -17,7 +17,7 @@
     shader: HolyStarsTrail
   requirements:
   - !type:DiscordRolesRequirement
-    requirement: PatronReq
+    requirement: MoonKnightGhostThemeReq
 
 - type: ghostTheme
   id: ClownTheme
@@ -30,7 +30,7 @@
     color: "#ffffff"
   requirements:
   - !type:DiscordRolesRequirement
-    requirement: PatronReq
+    requirement: MoonKnightGhostThemeReq
 
 - type: ghostTheme
   id: FaithlessTheme
@@ -43,7 +43,7 @@
     color: "#ffffff"
   requirements:
   - !type:DiscordRolesRequirement
-    requirement: PatronReq
+    requirement: MoonKnightGhostThemeReq
 
 - type: ghostTheme
   id: MushroomTheme
@@ -56,7 +56,7 @@
     color: "#ffffff"
   requirements:
   - !type:DiscordRolesRequirement
-    requirement: PatronReq
+    requirement: MoonKnightGhostThemeReq
 
 - type: ghostTheme
   id: WalkerTheme
@@ -69,26 +69,7 @@
     color: "#ffffff"
   requirements:
   - !type:DiscordRolesRequirement
-    requirement: PatronReq
-
-- type: ghostTheme
-  id: ShadowDemon
-  name: Shadow Demon
-  description: Its just observing… right? Right?
-  spriteSpecifier:
-    sprite:
-      sprite: _Starlight/Mobs/Customization/GhostThemes/shadow_demon.rsi
-      state: shadow_demon
-    color: "#ffffff"
-  trail:
-    color: "#FFFFFF"
-    maxPoints: 64
-    lineWidth: 0.65
-    minDistance: 0.10
-    shader: NightSkyTrail
-  requirements:
-  - !type:DiscordRolesRequirement
-    requirement: PatronReq
+    requirement: MoonKnightGhostThemeReq
 
 - type: ghostTheme
   id: WizdenCarp

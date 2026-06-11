@@ -9,7 +9,7 @@
     color: "#ffffff"
   requirements:
   - !type:DiscordRolesRequirement
-    requirement: GoldEventWinnerReq
+    requirement: LunarixOwnerReq
 
 - type: ghostTheme
   id: CarpGames
