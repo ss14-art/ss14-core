@@ -1,7 +1,7 @@
 <Document>
 # Базовые лекарства
 
-Это основной набор препаратов, который химик варит для медотсека в текущем наборе os_chem.
+Это основной набор препаратов, который химик варит для медотсека в текущем наборе art_chem.
 
 <GuideReagentEmbed Reagent="Bicaridine"/>
 <GuideReagentEmbed Reagent="Kelotane"/>
