@@ -3,7 +3,6 @@
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       MinSize="420 300"
                       Title="{Loc 'solution-heater-window-title'}">
-    <!-- open-space edit start -->
     <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6">
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'solution-heater-window-parameters-label'}"
@@ -53,5 +52,4 @@
             </ScrollContainer>
         </PanelContainer>
     </BoxContainer>
-    <!-- open-space edit end -->
 </controls:FancyWindow>

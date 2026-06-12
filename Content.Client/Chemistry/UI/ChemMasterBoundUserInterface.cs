@@ -146,6 +146,17 @@ namespace Content.Client.Chemistry.UI
             _analysisPopup.OnPrintPressed += reagent => SendMessage(new ChemPrintAnalysisMessage(reagent));
             _analysisPopup.OpenCentered();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+ 
+            if (disposing)
+            {
+                _analysisPopup?.Close();
+                _analysisPopup = null;
+            }
+        }
         // SS14-Art end
     }
 }
