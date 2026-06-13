@@ -29,6 +29,23 @@
             "name": "cover-inhand-left",
             "directions": 4
         },
+		{
+		  "name": "abductor",
+		  "delays": [
+			[
+			  0.1,
+			  0.1,
+			  0.1,
+			  0.1,
+			  0.1,
+			  0.1,
+			  0.1,
+			  0.1,
+			  0.1,
+			  0.1
+			]
+		  ]
+		},
         {
             "name": "cover-inhand-right",
             "directions": 4
