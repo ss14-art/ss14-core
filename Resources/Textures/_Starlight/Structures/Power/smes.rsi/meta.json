@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/9c7d509354ee030300f63c701da63c17928c3b3b and modified by Swept, advanced-smes, advanced-smes-static, advanced-smes-open modified from smes, smes-open, and static by august-sun (GitHub), advanced-smes, advanced-smes-static, advanced-smes-open resprite by nagato",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/9c7d509354ee030300f63c701da63c17928c3b3b and modified by Swept, advanced-smes, advanced-smes-static, advanced-smes-open modified from smes, smes-open, and static by august-sun (GitHub), advanced-smes, advanced-smes-static, advanced-smes-open resprite by nagato, blue smes by AL-S",
   "size": {
     "x": 32,
     "y": 32
@@ -78,6 +78,38 @@
           0.3
         ]
       ]
+    },
+    {
+      "name": "smes-blue-fan",
+	  "copyright": "AL_S (ss14.art)",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "smes-blue",
+	  "copyright": "AL_S (ss14.art)"
+    },
+    {
+      "name": "smes-blue-open",
+	  "copyright": "AL_S (ss14.art)"
+    },
+    {
+      "name": "smes-blue-static",
+	  "copyright": "AL_S (ss14.art)"
+    },
+    {
+      "name": "smes-blue-fan-0",
+	  "copyright": "AL_S (ss14.art)"
     },
     {
       "name": "smes-open",
